@@ -10,9 +10,9 @@ fun main() {
     var fraction1 = Fraction(numerator = 3.0, denominator = 4.0)
     var fraction2 = Fraction(numerator = 6.0, denominator = 8.0)
     println(fraction1)
-    println(fraction1.multiplyFraction(fraction2))
-    println(fraction1.divideFraction(fraction2))
-    println(fraction1.addFraction(fraction2))
+    println(fraction1.multiplyFraction(fraction2).simplifyFraction())
+    println(fraction1.divideFraction(fraction2).simplifyFraction())
+    println(fraction1.addFraction(fraction2).simplifyFraction())
     println(fraction1.substractFraction(fraction2))
     println(fraction2.simplifyFraction())
 
