@@ -33,8 +33,8 @@ class Point(private val x: Double, private val y: Double) {
         return false
     }
 
-    fun move0Axis(): Pair<Double, Double> {
-        return Pair(-x, -y)
+    fun move0Axis(): Point {
+        return Point(-x , -y)
     }
 
     fun calculateDistance(other: Point): Double {
