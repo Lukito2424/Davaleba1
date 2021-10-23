@@ -7,8 +7,8 @@ fun main() {
     println(b.move0Axis())
     println(a.calculateDistance(b))
     println(a == b)
-    var fraction1 = Fraction(numerator = 3.0, denominator = 4.0)
-    var fraction2 = Fraction(numerator = 6.0, denominator = 8.0)
+    val fraction1 = Fraction(numerator = 3.0, denominator = 4.0)
+    val fraction2 = Fraction(numerator = 6.0, denominator = 8.0)
     println(fraction1)
     println(fraction1.multiplyFraction(fraction2).simplifyFraction())
     println(fraction1.divideFraction(fraction2).simplifyFraction())
@@ -22,7 +22,6 @@ fun main() {
 
 class Point(private val x: Double, private val y: Double) {
 
-
     override fun toString(): String {
         return "($x;$y)"
     }
@@ -34,7 +33,7 @@ class Point(private val x: Double, private val y: Double) {
     }
 
     fun move0Axis(): Point {
-        return Point(-x , -y)
+        return Point(-x, -y)
     }
 
     fun calculateDistance(other: Point): Double {
@@ -42,10 +41,15 @@ class Point(private val x: Double, private val y: Double) {
 
 
     }
+
+    override fun hashCode(): Int {
+        var result = x.hashCode()
+        result = 31 * result + y.hashCode()
+        return result
+    }
 }
 
 class Fraction(private var numerator: Double, private var denominator: Double) {
-
 
     override fun equals(other: Any?): Boolean {
         if (other is Fraction) return (numerator * other.denominator / denominator == other.numerator)
@@ -121,6 +125,11 @@ class Fraction(private var numerator: Double, private var denominator: Double) {
         return Fraction(numerator/gcd , denominator/gcd)
     }
 
+    override fun hashCode(): Int {
+        var result = numerator.hashCode()
+        result = 31 * result + denominator.hashCode()
+        return result
+    }
 
 
 }
